@@ -23,11 +23,13 @@
 
 ### Registration Page
 
-<img src="./frontend/src/assets/screenshots/register.png" width="400"/>
+<img width="496" alt="Pasted Graphic 2" src="https://github.com/user-attachments/assets/741956d1-9903-4755-b980-deda1c24d49f" />
+
 
 ### Main Chat Interface
 
-<img src="./frontend/src/assets/screenshots/chat-ui.png" width="700"/>
+<img width="1015" alt="Pasted Graphic" src="https://github.com/user-attachments/assets/a24eb3de-b4da-458c-97ac-43103c3a6460" />
+
 
 > *Note: Screenshots show branding for demonstration only. Logo and colors can be customized.*
 
@@ -127,12 +129,3 @@ All chat logs, user data, and uploaded files are processed and stored locally. T
 * [ ] Support private vector store indexing
 * [ ] Deployable as a Docker container
 
----
-
-你可以将图片放入仓库中如 `frontend/src/assets/screenshots/` 路径下，并将对应的文件名分别保存为：
-
-* `login.png`
-* `register.png`
-* `chat-ui.png`
-
-我可以帮你生成 `.gitignore` 或上传脚本来整理这些文件路径，要继续吗？
