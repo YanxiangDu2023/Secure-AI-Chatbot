@@ -1,93 +1,138 @@
-Secure AI Chatbot
-Secure AI Chatbot is a locally deployed, offline-capable chatbot system developed using React and FastAPI. It provides user registration and login, streaming conversations, and optional secure file processing, making it suitable for internal use by government agencies, NGOs, or organizations with strict data security and privacy requirements.
 
-Features
-User Authentication: Supports secure user registration and login with session-based access.
+## Secure AI Chatbot
 
-Streaming Chat Interface: Real-time conversation with streaming model responses, including an optional "thinking phase".
+**Secure AI Chatbot** is a locally deployed, offline-capable chatbot system designed for internal use by governmental bodies or international organizations. It features secure user authentication, document-aware AI conversations, and a fully private architecture for environments where data isolation is critical.
 
-Offline File Analysis (Optional): Enables secure document-based question answering using local file parsing and retrieval-augmented generation (RAG).
+---
 
-Customizable Interface: Clean, modern UI styled with institutional branding; includes dark mode.
+## System Overview
 
-Multilingual Support: Supports over 29 languages including Arabic.
+* **Frontend**: React + TypeScript with institutional styling
+* **Backend**: Python FastAPI + Uvicorn
+* **AI Support**: Local large language models via [Ollama](https://ollama.com)
+* **Security**: Air-gapped mode, no third-party dependencies at runtime
 
-Local LLM Integration: Supports running LLMs such as Qwen or DeepSeek through Ollama without reliance on external APIs or internet.
 
-Data Isolation: All interactions, files, and chat history are stored and processed locally.
+---
 
-Architecture Overview
-Component	Technology
-Frontend	React, TypeScript, TailwindCSS
-Backend	FastAPI, Uvicorn, SQLite
-AI Model Layer	Ollama, LangChain (optional)
-Storage	SQLite3, Local filesystem
+## Interface Preview
 
-Installation and Setup
-Prerequisites
-Python 3.9 or higher
+### Login Page
+<img width="566" alt="Pasted Graphic 1" src="https://github.com/user-attachments/assets/6b367e45-7b6d-492f-ba35-e9cb9218612a" />
 
-Node.js 16 or higher
 
-(Optional) Ollama installed locally for LLM execution
+### Registration Page
 
-1. Clone the Repository
-bash
-Copy
-Edit
+<img src="./frontend/src/assets/screenshots/register.png" width="400"/>
+
+### Main Chat Interface
+
+<img src="./frontend/src/assets/screenshots/chat-ui.png" width="700"/>
+
+> *Note: Screenshots show branding for demonstration only. Logo and colors can be customized.*
+
+---
+
+## Features
+
+* User account registration and login
+* Local chat history with multi-session support
+* Real-time streaming responses with optional "thinking phase"
+* File upload and secure document QA (PDF, TXT, DOCX, etc.)
+* Arabic RTL input support
+* Dark/light mode toggle
+
+---
+
+## Installation Guide
+
+### Prerequisites
+
+* Python ≥ 3.9
+* Node.js ≥ 16
+* (Optional) [Ollama](https://ollama.com) for model execution
+* Local models such as `qwen2:1.5b`, `deepseek-coder:1.3b`
+
+---
+
+### 1. Clone and Setup
+
+```bash
 git clone https://github.com/YanxiangDu2023/Secure-AI-Chatbot.git
 cd Secure-AI-Chatbot
-2. Backend Setup
-bash
-Copy
-Edit
+```
+
+---
+
+### 2. Backend Setup
+
+```bash
 cd backend
 python -m venv venv
-source venv/bin/activate  # Windows: venv\Scripts\activate
+source venv/bin/activate
 pip install -r requirements.txt
 
-# Start backend server
+# Start API server
 uvicorn app.main:app --host 127.0.0.1 --port 8000
-If you plan to use document-based answering, ensure the following Python packages are installed:
-pymupdf, python-magic, langchain, llama-index, ollama, etc.
+```
 
-3. Frontend Setup
-bash
-Copy
-Edit
+> Optional modules: `pymupdf`, `python-magic`, `langchain`, `ollama`, `llama-index`
+
+---
+
+### 3. Frontend Setup
+
+```bash
 cd ../frontend
 npm install --legacy-peer-deps
 npm start
-4. (Optional) Running a Local Language Model
-bash
-Copy
-Edit
+```
+
+---
+
+### 4. Running Models with Ollama (Optional)
+
+```bash
 ollama pull qwen2:1.5b
 ollama run qwen2:1.5b
-Use Qwen for multilingual content and document analysis.
-Use DeepSeek for logical tasks requiring reasoning and intermediate “thinking phase” output.
+```
 
-Usage
-Navigate to http://localhost:3000
+---
 
-Register a new account or log in
+## Project Structure
 
-Start a new conversation or continue from previous sessions
-
-Upload documents (if enabled) for content-aware interactions
-
-Project Structure
-bash
-Copy
-Edit
+```
 Secure-AI-Chatbot/
-├── backend/           # FastAPI backend
-│   └── app/           # Core logic and API routes
-├── frontend/          # React client application
+├── backend/
+│   ├── app/
+│   └── routes/
+├── frontend/
 │   └── src/
+│       └── assets/screenshots/
 └── README.md
-Data Privacy Notice
-This system is designed for local use in secured environments.
-No data is sent to third-party services. All operations and storage remain fully offline.
-External deployment is not recommended unless appropriate safeguards are implemented.
+```
 
+---
+
+## Security Notice
+
+All chat logs, user data, and uploaded files are processed and stored locally. This system does **not** rely on any external APIs or cloud services, ensuring complete data privacy.
+
+
+---
+
+### ✅ To Do:
+
+* [ ] Add role-based user permissions
+* [ ] Support private vector store indexing
+* [ ] Deployable as a Docker container
+
+---
+
+你可以将图片放入仓库中如 `frontend/src/assets/screenshots/` 路径下，并将对应的文件名分别保存为：
+
+* `login.png`
+* `register.png`
+* `chat-ui.png`
+
+我可以帮你生成 `.gitignore` 或上传脚本来整理这些文件路径，要继续吗？
